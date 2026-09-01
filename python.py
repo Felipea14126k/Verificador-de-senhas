@@ -3,8 +3,13 @@ print("Para criar uma senha segura ela dever ter pelo menos um caractere especia
 def cadastro_senha():
     inserir_senha = input("Digite sua senha:")
     print("Ok, vamos verificar se sua senha é válida.")
-    
     tamanho_senha = len(inserir_senha)
+
+    while tamanho_senha <= 8:
+        print("Senha inválida! A senha deve ter no mínimo 8 caracteres.")
+        inserir_senha = input("Digite sua senha:")
+        tamanho_senha = len(inserir_senha)
+
     caracteres_especiais = "!@#$%^&*()-_=+[]{}|;:'\",.<>?/`~"
 
     numeros = "0123456789"
@@ -23,10 +28,10 @@ def cadastro_senha():
         print("Senha incorreta! Tente novamente.")
         verificar_senha = input("Digite sua senha novamente para verificação:")
     print("Senha verificada com sucesso!")
-
+    return inserir_senha, tem_especial, tem_numero
 def senha_valida(tem_especial,tem_numero):
     if tem_especial and tem_numero:
-        print("Senha válida! Sua senha atende aos requisitos de segurança.")
+        print("Senha válida! Sua senha atende ao todos os requisitos de segurança.")
 def senha_media(tem_especial, tem_numero):
     if tem_especial != tem_numero:   
         print("Senha média! Sua senha atende a alguns requisitos de segurança.")
